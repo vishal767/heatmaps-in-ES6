@@ -1,0 +1,37 @@
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin:0px;
+}
+table{
+    background:url('https://amazingpict.com/wp-content/uploads/2015/02/football-ground.jpg')  no-repeat;
+    margin-left:200px;
+    background-size:800px 450px;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 200px;
+   width:800px;
+    height:450px;
+    background:transparent;
+   border:1px solid grey;
+}
+th,td {
+   
+    width:66.667px;
+    height:50px;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+.input-group{
+    margin-left:35%;
+}
+.second{
+    margin-left:5%;
+}
