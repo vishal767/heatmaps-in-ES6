@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Data Visualization Portal - GBF</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <!--Base Template-->
+<style>
+	* {
+	box-sizing: border-box;
+}
+
+*:before, *:after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0 auto;
+	font-size: 21px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: 1.2;
+	overflow: scroll;
+	background: #fafafa;
+}
+.btn{
+	padding:10px;
+	border-radius:20%;
+	background-color:#68a17d;
+	color:white;
+}
+input[type='number'],input[type='number'],input[type='date']{
+	padding:10px;
+	
+}
+a {
+	text-decoration: none;
+	color: #212121;
+	transition: 0.3s ease;
+}
+.nav{
+	position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+a:hover {
+	color: #00ffbc;
+	transition: 0.3s ease;
+}
+
+.view-window {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+#new-text{
+	margin:10px;
+}
+.new-text{
+	margin:10px;
+}
+.input-screen{
+	display: flex;
+	padding:20px;
+	width: 100vw;
+	flex-direction: row;
+	overflow:scroll;
+}
+.screen {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	border: 0;
+	padding: 60px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background: #212121;
+	color: #fafafa;
+	overflow: scroll;
+}
+
+svg {
+	display: block;
+	width: 100%;
+    height: 100%;
+}
+
+canvas{
+	background:#212121;
+	width: 100% !important;
+	max-height: 100% !important;
+}
+h3{
+	font-weight:light;
+	font-size:14px;
+	color:grey;
+}
+</style>
+<section class="view-window">
+	<div class="nav">
+		<div align="center">
+			<h1>Data Visualization Portal - GBF</h1>
+			<h3>
+				for MAP Data ...<a href="https://codepen.io/Vish0007/full/gBJqBm" target="blank">click here</a>
+			</h3>
+			<h3>
+				Bar & Line Chart
+<br/>
+This helps to show the change in the value of metric across time. Please select the metric to be displayed from the dropdown
+<br/>
+<br/>
+Radar, Stacked Area Chart & Scatter Plot
+<br/>
+This is a static chart. It helps to compare multiple metrics across time and also helps to find correlation across variables
+				<br/>
+				<br/>
+				Please enter new data in the fields below for the data to reflect dynamically in the charts below
+			</h3>
+		</div>
+	<div class="input-screen">
+		
+		<input class="new-text" type="text"
+			 name="monitor_name" placeholder="monitor_name" defaultvalue="0" onchange="change(event)">
+		<input class="new-text" type="text"
+			 name="site_description" placeholder="site-description"  onchange="change(event)">
+		<input class="new-text" type="text"
+		placeholder="date (dd/mm/yy)"	 name="date"   onchange="change(event)">
+		<input class="new-text" type="text"
+			 name="time" placeholder="time"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="depth" placeholder="depth"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="air_temp" placeholder="air_temp"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="water_temp" placeholder="water_temp"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="avg_do" placeholder="avg_do"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Sample_pH" placeholder="Sample_pH"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Transparency" placeholder="Transparency"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Total_Depth" placeholder="Total_Depth"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Algae" placeholder="Algae"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Color" placeholder="Color"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Clarity" placeholder="Clarity"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Surface" placeholder="Surface"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Conditions" placeholder="Conditions"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Odor" placeholder="Odor"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Weather" placeholder="Weather"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Days_Since_Precip" placeholder="Days_Since_Precip"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Bacteria_Sample" placeholder="Bacteria_Sample"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Enterococcus" placeholder="Enterococcus"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Specific_Gravity" placeholder="Specific_Gravity"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="SpGr_Temp" placeholder="SpGr_Temp"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Salinity" placeholder="Salinity"  onchange="change(event)">
+		<input class="new-text" type="number"
+			 name="Tide" placeholder="Tide"  onchange="change(event)">
+		
+		
+	</div>
+	<div align="center" style="padding:5px">
+		<button onclick="getValue()" class="btn">Add</button>
+	</div>	
+	</div>
+	<div class="screen">
+		<canvas id="myChart">
+		</canvas>
+		<select onchange="getline(event)">
+			<option value="depth">depth</option>
+			<option value="air_temp">air temp</option>
+			<option value="water_temp">water temp</option>
+			<option value="avg_do">avg do</option>
+			<option value="Sample_pH">sample ph temp</option>
+			<option value="Transparency">transperancy temp</option>
+		
+		</select>
+		
+	</div>
+	<div class="screen">
+		<canvas id="myChart1">
+			
+		</canvas>
+		<select onchange="getbar(event)">
+			<option value="depth">depth</option>
+			<option value="air_temp" selected>air temp</option>
+			<option value="water_temp">water temp</option>
+			<option value="avg_do">avg do</option>
+			<option value="Sample_pH">sample ph temp</option>
+			<option value="Transparency">transperancy temp</option>
+		</select>
+		
+	</div>
+	
+	
+	<div class="screen">
+		<canvas id="myChart4"></canvas>
+		
+	</div>
+	
+	<div class="screen">
+		<canvas id="myChart2"></canvas>
+		
+	</div>
+	<div class="screen" align="center">
+		<canvas id="myChart3"></canvas>
+		
+	</div>
+</section>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js'></script>
+<script src='https://raw.githubusercontent.com/chartjs/Chart.LinearGauge.js/master/Chart.LinearGauge.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
